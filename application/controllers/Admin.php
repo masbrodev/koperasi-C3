@@ -39,10 +39,11 @@ class Admin extends CI_Controller {
 
         $password = md5($this->input->post('password'));
         $data = array(
-            'nama'         	=> $this->input->post('nama'),
-            'password'      => $password,
-            'email'         => $this->input->post('email'),
-            'image'    			=> $image_name
+					  'username_admin'      => $this->input->post('username'),
+            'nama_admin'         	=> $this->input->post('nama'),
+            'password_admin'      => $password,
+            'email_admin'         => $this->input->post('email'),
+            'foto_admin'    			=> $image_name
         );
 
         $this->model_admin->add($data);
@@ -52,7 +53,7 @@ class Admin extends CI_Controller {
     function cpassword($id)
     {
         $datacontent['page']   = 'admin';
-        $datacontent['data']   = $this->model_admin->get_all('id',$id);
+        $datacontent['data']   = $this->model_admin->get_all('id_admin',$id);
         $this->load->view('admin/cpassword',$datacontent);
     }
 
@@ -62,7 +63,7 @@ class Admin extends CI_Controller {
 
         $password = md5($this->input->post('password'));
         $data = array(
-            'password'          => $password
+            'password_admin'          => $password
         );
         $this->model_admin->update($this->input->post('id'),$data);
         redirect('admin');
@@ -71,7 +72,7 @@ class Admin extends CI_Controller {
     function edit($id)
     {
         $datacontent['page']        = 'admin';
-        $datacontent['data']        = $this->model_admin->get_all('id', $id);
+        $datacontent['data']        = $this->model_admin->get_all('id_admin', $id);
         $this->load->view('admin/edit',$datacontent);
     }
 
@@ -88,9 +89,10 @@ class Admin extends CI_Controller {
                 $image_name = $this->input->post('imagex');
             }
         $data = array(
-            'nama'          => $this->input->post('nama'),
-            'email'         => $this->input->post('email'),
-            'image'         => $image_name
+					  'username_admin'      => $this->input->post('username'),
+            'nama_admin'          => $this->input->post('nama'),
+            'email_admin'         => $this->input->post('email'),
+            'foto_admin'          => $image_name
         );
         $this->model_admin->update($this->input->post('id'),$data);
         redirect('admin');

@@ -27,16 +27,20 @@
                                 <form role="form" enctype="multipart/form-data" method="post" action="<?php echo site_url('admin/actionadd');?>">
                                     <div class="box-body">
                                         <div class="form-group">
+                                            <label for="exampleInputEmail1">Nama</label>
+                                            <input type="nama" name="nama" class="form-control" id="exampleInputUsername1" placeholder="Enter name">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="exampleInputEmail1">Username</label>
-                                            <input type="username" name="nama" class="form-control" id="exampleInputUsername1" placeholder="Enter username">
+                                            <input type="username" name="username" class="form-control" id="exampleInputUsername1" placeholder="Enter username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Email</label>
+                                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Password</label>
                                             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                         </div>
                                         <div class="box-body no-padding">
                                           <div class="x_content">

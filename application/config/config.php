@@ -29,7 +29,8 @@ $baseUrl .= str_replace('\\','/', dirname( isset($_SERVER['SCRIPT_NAME']) ? $_SE
 $config['base_url'] = $baseUrl;
 $config['assets'] 			    = $config['base_url']."public_assets/";
 $config['path'] 			      = $config['base_url']."public_assets/img/";
-$config['upload_image']		  = 'C:/xampp/htdocs/puskesmas/public_assets/img';
+$config['upload_image']		  = 'C:/xampp/htdocs/koperasi/public_assets/img';
+$config['upload_captcha']		= 'C:/xampp/htdocs/koperasi/public_assets/captcha/';
 
 /*
 |--------------------------------------------------------------------------

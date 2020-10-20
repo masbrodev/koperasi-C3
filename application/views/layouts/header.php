@@ -7,10 +7,10 @@ $path    = $this->config->item('path');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Skripsi</title>
+  <title>BUMdes</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="shortcut icon" type="image/png" href="<?php echo $assets;?>/img/logo.png" />
+  <link rel="shortcut icon" type="image/png" href="<?php echo $assets;?>/img/20200630055212bumi.png" />
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo $assets;?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -18,6 +18,7 @@ $path    = $this->config->item('path');
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo $assets;?>/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo $assets;?>/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="<?php echo $assets;?>/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="<?php echo $assets;?>/dist/css/AdminLTE.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -34,7 +35,7 @@ $path    = $this->config->item('path');
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo $assets;?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="<?php echo $assets;?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-
+  <link rel="stylesheet" href="<?php echo $assets;?>/bower_components/select2/dist/css/select2.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -52,7 +53,7 @@ $path    = $this->config->item('path');
     <!-- Logo -->
     <a href="<?php echo site_url('dashboard');?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">Surat Masuk Dan Surat Keluar</span>
+      <span class="logo-mini" style="display : block;">BUMdes</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -66,13 +67,13 @@ $path    = $this->config->item('path');
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo $path.'/'.$this->session->userdata['image'];?>" class="user-image" alt="User Image">
+              <img src="<?php echo $assets;?>/dist/img/avatar2.png" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo $this->session->userdata['adminname'];?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo $path.'/'.$this->session->userdata['image'];?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $assets;?>/dist/img/avatar2.png" class="img-circle" alt="User Image">
 
                 <p>
                   <?php echo $this->session->userdata['adminname'];?>
@@ -97,7 +98,7 @@ $path    = $this->config->item('path');
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo $path.'/'.$this->session->userdata['image'];?>" class="img-circle" alt="User Image">
+          <img src="<?php echo $assets;?>/img/20200630055212bumi.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info" style="padding-left: 8px;">
           <p><?php echo $this->session->userdata['adminname'];?></p>
@@ -106,21 +107,12 @@ $path    = $this->config->item('path');
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
-        <li <?php echo ($page=='dashboard')?'class="active"':'';?>><a href="<?php echo site_url('dashboard');?>"><i class="fa fa-dashboard"></i> <span>HOME</span></a></li>
-        <li <?php echo ($page=='administrator')?'class="active"':'';?>><a href="<?php echo site_url('admin');?>"><i class="fa fa-user"></i> <span>ADMINISTRATOR</span></a></li>
-        <li class="treeview menu-open">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Daftar</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: block;">
-            <li <?php echo ($page=='dokumen')?'class="active"':'';?>><a  href="<?php echo site_url('jalan');?>"><i class="fa fa-child "></i>Rawat Jalan</a></li>
-            <li <?php echo ($page=='dokumen')?'class="active"':'';?>><a  href="<?php echo site_url('inap');?>"><i class="fa fa-bed"></i>Rawat Inap</a></li>
-          </ul>
-        </li>
-        <!-- <li <?php echo ($page=='pasien')?'class="active"':'';?>><a href="<?php echo site_url('pasien');?>"><i class="fa fa-users"></i> <span>Pasien</span></a></li> -->
+        <li <?php echo ($page=='dashboard')?'class="active"':'';?>><a href="<?php echo site_url('dashboard');?>"><i class="fa fa-dashboard"></i> <span>DASHBOARD</span></a></li>
+        <li <?php echo ($page=='admin')?'class="active"':'';?>><a href="<?php echo site_url('admin');?>"><i class="fa fa-user"></i> <span>ADMINISTRATOR</span></a></li>
+        <li <?php echo ($page=='pelanggan')?'class="active"':'';?>><a href="<?php echo site_url('pelanggan');?>"><i class="fa fa-users"></i> <span>ANGGOTA</span></a></li>
+        <li <?php echo ($page=='barang')?'class="active"':'';?>><a href="<?php echo site_url('barang');?>"><i class="fa fa-book"></i> <span>BARANG</span></a></li>
+        <li <?php echo ($page=='pinjaman')?'class="active"':'';?>><a href="<?php echo site_url('pinjaman');?>"><i class="fa fa-dollar"></i> <span>PINJAMAN</span></a></li>
+        <li <?php echo ($page=='pembayaran')?'class="active"':'';?>><a href="<?php echo site_url('pembayaran');?>"><i class="fa fa-money"></i> <span>PEMBAYARAN</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

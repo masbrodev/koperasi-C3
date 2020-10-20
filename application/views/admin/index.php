@@ -31,6 +31,7 @@
                 <tr>
                   <th>No</th>
                   <th>Nama Admin</th>
+                  <th>Username Admin</th>
                   <th>Email Admin</th>
                   <th>Option</th>
                 </tr>
@@ -40,12 +41,13 @@
                         foreach($data as $a){?>
                         <tr>
                             <td><?php echo $i;?></td>
-                            <td><?php echo $a['nama'];?></td>
-                            <td><?php echo $a['email'];?></td>
+                            <td><?php echo $a['nama_admin'];?></td>
+                            <td><?php echo $a['username_admin'];?></td>
+                            <td><?php echo $a['email_admin'];?></td>
                             <td>
-                                <a href="<?php echo site_url('admin/cpassword/'.$a['id']);?>"><i title="change password" class="fa fa-key"></i></a>
-                                <a href="<?php echo site_url('admin/edit/'.$a['id']);?>"><i title="edit" class="fa fa-edit"></i></a>
-                                <a data-href="<?php echo site_url('admin/actiondelete/'.$a['id']);?>" data-toggle="modal" data-target="#confirm-delete<?php echo $i;?>" href="#"><i title="delete" class="fa fa-trash"></i></a>
+                                <a href="<?php echo site_url('admin/cpassword/'.$a['id_admin']);?>"><i title="change password" class="fa fa-key"></i></a>
+                                <a href="<?php echo site_url('admin/edit/'.$a['id_admin']);?>"><i title="edit" class="fa fa-edit"></i></a>
+                                <a data-href="<?php echo site_url('admin/actiondelete/'.$a['id_admin']);?>" data-toggle="modal" data-target="#confirm-delete<?php echo $i;?>" href="#"><i title="delete" class="fa fa-trash"></i></a>
 
                                 <div class="modal fade" id="confirm-delete<?php echo $i;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -64,7 +66,7 @@
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                                <a href="<?php echo site_url('admin/actiondelete/'.$a['id']);?>" class="btn btn-danger danger">Delete</a>
+                                                <a href="<?php echo site_url('admin/actiondelete/'.$a['id_admin']);?>" class="btn btn-danger danger">Delete</a>
                                             </div>
                                         </div>
                                     </div>

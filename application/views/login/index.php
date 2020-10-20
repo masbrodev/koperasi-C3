@@ -7,7 +7,7 @@ $assets              = $this->config->item('assets');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Skripsi</title>
+  <title>BUMdes</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -31,10 +31,10 @@ $assets              = $this->config->item('assets');
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page" style="background: url(public_assets/img/background.jpg); background-size: 100%; background-repeat: no-repeat;">
+<body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <b>Aplikasi Pendaftaran Pasien</b>
+    <b>BUMdes</b>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -48,6 +48,15 @@ $assets              = $this->config->item('assets');
         <strong><?php echo $this->session->flashdata('alert_error'); ?></strong>
       </div>
     <?php ;} ?>
+    <?php if ($this->session->flashdata('alert_captcha')) { ?>
+      <div class="alert alert-warning alert-dismissible mb-2" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Warning!</strong>
+        <strong><?php echo $this->session->flashdata('alert_captcha'); ?></strong>
+      </div>
+    <?php ;} ?>
     <?php if ($this->session->flashdata('alert_logout')) { ?>
       <div class="alert alert-success alert-dismissible mb-2" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -59,12 +68,21 @@ $assets              = $this->config->item('assets');
     <?php ;} ?>
     <form action="<?php echo site_url('auth/masuk');?>" method="POST">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" name="email" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <input type="email" class="form-control" name="email" placeholder="Email" required>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
         <span class="glyphicon glyphicon-eye-open form-control-feedback" style="pointer-events: visible;"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <?php echo $captcha_image;?>
+      </div>
+      <div class="form-group has-feedback">
+        &nbsp;<a href="#" onclick="parent.window.location.reload(true)">reload captcha</a>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" name="input_captcha" placeholder="Input Captcha" autocomplete="off" required>
       </div>
       <div class="row">
         <!-- /.col -->

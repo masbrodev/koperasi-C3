@@ -8,7 +8,7 @@ class Model_admin extends CI_Model
 	}
 
 	function login($email,$password){
-		$check = $this->db->get_where($this->_table, array('email'=>$email, 'password'=>$password));
+		$check = $this->db->get_where($this->_table, array('email_admin'=>$email, 'password_admin'=>$password));
 		if($check->num_rows()>0){
 			return 1;
 		}else{
@@ -18,7 +18,7 @@ class Model_admin extends CI_Model
 
 	function datauser($email,$password)
 	{
-		$query    = $this->db->get_where($this->_table, array('email'=>$email, 'password'=>$password));
+		$query    = $this->db->get_where($this->_table, array('email_admin'=>$email, 'password_admin'=>$password));
 		$result   = $query->row_array();
 
 		return $result;
@@ -40,13 +40,13 @@ class Model_admin extends CI_Model
 
 	function update($id, $data)
   {
-		$this->db->where('id', $id);
+		$this->db->where('id_admin', $id);
 		$this->db->update($this->_table, $data);
 	}
 
 	function delete($data)
 	{
-		$this->db->delete($this->_table, array('id' => $data));
+		$this->db->delete($this->_table, array('id_admin' => $data));
 	}
 }
 ?>

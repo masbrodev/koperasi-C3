@@ -33,7 +33,7 @@
                                     </div><!-- /.box-body -->
 
                                     <div class="box-footer">
-                                        <input type="hidden" name="id" value="<?php echo $data['id'];?>">
+                                        <input type="hidden" name="id" value="<?php echo $data['id_admin'];?>">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </form>

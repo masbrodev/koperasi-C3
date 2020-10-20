@@ -28,17 +28,22 @@
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Username</label>
-                                            <input type="username" name="nama" class="form-control" id="exampleInputUsername1" placeholder="Enter username" value="<?php echo $data['nama'];?>">
+                                            <input type="username" name="username" class="form-control" id="exampleInputUsername1" placeholder="Enter username" value="<?php echo $data['username_admin'];?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Nama</label>
+                                            <input type="nama" name="nama" class="form-control" id="exampleInputUsername1" placeholder="Enter name" value="<?php echo $data['nama_admin'];?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="<?php echo $data['email'];?>">
+                                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="<?php echo $data['email_admin'];?>">
                                         </div>
                                         <div class="box-body no-padding">
                                           <div class="x_content">
                                             <div class="form-group">
-                                            <?php if (!empty($data['image'])) {?>
-                                              <img src="<?php echo $path.'/'.$data['image'];?>" id="showgambar" style="max-width:200px;max-height:200px;" /><br/>
+                                            <?php if (!empty($data['foto_admin'])) {?>
+                                              <img src="<?php echo $path.'/'.$data['foto_admin'];?>" id="showgambar" style="max-width:200px;max-height:200px;" /><br/>
+                                              <input type="hidden" name="imagex" value="<?php echo $data['foto_admin']; ?>">
                                             <?php }else{?>
                                               <img src="http://placehold.it/100x100" id="showgambar" style="max-width:200px;max-height:200px;" /><br/>
                                             <?php ;} ?>
@@ -51,7 +56,7 @@
                                     </div><!-- /.box-body -->
 
                                     <div class="box-footer">
-                                        <input type="hidden" name="id" value="<?php echo $data['id'];?>">
+                                        <input type="hidden" name="id" value="<?php echo $data['id_admin'];?>">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </form>
